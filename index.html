@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To Watch List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="MyApp">
+  <div class="container">
+    <h1>To Watch List</h1>
+    <div ng-controller='mainCtrl'>
+      <h2 ng-hide="editState">Add New Film</h2>
+      <h2 ng-show="editState">Edit Film</h2>
+      <form class="form-inline">
+
+        <label for="newTitle">Title</label>
+        <input type="text" ng-model='newFilm.title'>
+        
+        <label for="newCategory">Category</label>
+        <input type="text" ng-model='newFilm.category'>
+        
+        <label for="newMinutes">Minutes</label>
+        <input type="number" ng-model='newFilm.minutes' min="0">
+        <button ng-click='addFilm()' class="btn btn-success btn-sm" ng-hide="editState">Add Film</button>
+        <button ng-click='editFilm()' class="btn btn-info btn-sm" ng-show="editState">Edit Film</button>
+        
+      </form>
+
+      <div class="form-group">
+        <label for="filter">Search</label>
+        <input ng-model="filterText" type="text" class="form-control">
+      </div>
+      
+      <table class="table" ng-if='films.length'>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th ng-repeat="(key, value) in films[0]">{{key}}</th>
+            <th>Delete</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr ng-repeat="(key, film) in films | filter : filterText track by $index" ng-class='{lightsteelblue: $even}'>
+            <td>{{$index + 1}}</td>
+            <td ng-repeat="(key, value) in film">{{value}}</td>
+            
+            <td><button ng-click="removeFilm(film)" class="btn btn-danger btn-sm">
+              <span class="glyphicon glyphicon-trash"></span>              
+            </button></td>
+            <td><button ng-click="openEdit(film)" class="btn btn-warning btn-sm">
+              <span class="glyphicon glyphicon-pencil"></span>              
+            </button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
