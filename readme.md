@@ -11,3 +11,5 @@ You can:
 - Sort your films by clicking on the down pointing triangles and clicking them again to reverse the order
 
 Data is stored in local storage. 
+
+### Deployed at: http://coolconfucius.github.io/to-watch-list/
