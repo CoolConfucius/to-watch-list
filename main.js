@@ -84,4 +84,15 @@ app.controller('mainCtrl', function($scope, $localStorage, $sessionStorage) {
     $scope.newFilm = resetFilm;
     $scope.editState = false; 
   };
+
+
+  $scope.sortFilm = function(key){
+    if ($scope.sortText === key) {
+      $scope.sortText = '-'+key;   
+    } else {
+      $scope.sortText = key; 
+    }
+    
+    
+  }
 }); 

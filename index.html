@@ -35,15 +35,17 @@
       <table class="table" ng-if='films.length'>
         <thead>
           <tr>
-            <th>#</th>
-            <th ng-repeat="(key, value) in films[0]">{{key}}</th>
+            <th ng-click="sort = ''">#</th>
+            <th ng-repeat="(key, value) in films[0]" >{{key}}
+              <span ng-click="sortFilm(key)" class="glyphicon glyphicon-triangle-bottom"></span>
+            </th>
             <th>Delete</th>
             <th>Edit</th>
           </tr>
         </thead>
         <tbody>
 
-          <tr ng-repeat="(key, film) in films | filter : filterText track by $index" ng-class='{lightsteelblue: $even}'>
+          <tr ng-repeat="(key, film) in films | filter : filterText | orderBy: sortText track by $index" ng-class='{lightsteelblue: $even}'>
             <td>{{$index + 1}}</td>
             <td ng-repeat="(key, value) in film">{{value}}</td>
             
