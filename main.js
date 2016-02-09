@@ -7,7 +7,13 @@ app.controller('mainCtrl', function($scope, $localStorage, $sessionStorage) {
   $scope.$storage = $localStorage; 
   if (!$scope.$storage.films) {
     $scope.$storage = $localStorage.$default({
-      films: []
+      films: [ 
+        { title: "HP Philosopher's Stone", category: "fantasy", minutes: 159 },
+        { title: "LotR Fellowship of the Ring", category: "fantasy", minutes: 228 },
+        { title: "Star Wars: the Force Awakens", category: "science fiction", minutes: 136 }, 
+        { title: "Goldfinger", category: "action", minutes: 112 }, 
+        { title: "Fight Club", category: "drama", minutes: 151 }, 
+      ]
     });
   } 
 
