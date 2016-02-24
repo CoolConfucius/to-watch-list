@@ -4,7 +4,7 @@ Have a long list of films you want to watch? The To Watch List is a tool for kee
 
 You can: 
 - Add films to the list by entering a title, category, or the length in minutes. 
-- See your engry pop up in the table. 
+- See your entry pop up in the table. 
 - Remove them from the list by clicking the trash icon. 
 - Edit the films on the list by clicking the pencil icon and type in the form. 
 - Filter your films by typing into the search bar 
